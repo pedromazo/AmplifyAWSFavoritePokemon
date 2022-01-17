@@ -1,0 +1,32 @@
+<h1 class="header">Qual seu pokemon favorito?</h1>
+
+<div class="container margins">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let todo of todos">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body" >
+                <h5 class="card-title"> {{ todo.pokemonName }} </h5>
+                <p class="card-text"> {{ todo.user }} </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-body margins">
+    <form
+      autocomplete="off"
+      [formGroup]="createForm"
+      (ngSubmit)="onCreate(createForm.value)"
+    >
+      <div>
+        <label class="form-label">Pokemon: </label>
+        <input type="text" formControlName="pokemonName" autocomplete="off" class="form-control" />
+      </div>
+      <div>
+        <label>User: </label>
+        <input type="text" formControlName="user" autocomplete="off" class="form-control" />
+      </div>
+      <button type="submit" class="mt-3">Submit</button>
+    </form>
+</div>

@@ -1,3 +1,9 @@
+<amplify-authenticator>
+  <div>
+    <amplify-sign-out></amplify-sign-out>
+  </div>
+</amplify-authenticator>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Pokemon</a>
@@ -7,47 +13,20 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/pokemon">Pokemons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/new">New</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<amplify-authenticator>
-  <div>
-    Pokemon Favorito App
-    <amplify-sign-out></amplify-sign-out>
-  </div>
-  <!-- previous code -->
-</amplify-authenticator>
+<router-outlet></router-outlet>
+<!-- https://img.pokemondb.net/artwork/large/pikachu.jpg -->
 
 
-<div class="form-body">
-  <form
-    autocomplete="off"
-    [formGroup]="createForm"
-    (ngSubmit)="onCreate(createForm.value)"
-  >
-    <div>
-      <label>Name: </label>
-      <input type="text" formControlName="name" autocomplete="off" />
-    </div>
-    <div>
-      <label>Pokemon: </label>
-      <input type="text" formControlName="pokemon" autocomplete="off" />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
-</div>
-
-<div *ngFor="let favorite of favorites">
-  <!-- <div>{{ favorite.name}}</div>
-  <div>{{ favorite.pokemon }}</div> -->
-  <div class="card" style="width: 18rem;">
-    <img src= "https://img.pokemondb.net/artwork/large/pikachu.jpg"  class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text"> {{ favorite.name }} </p>
-    </div>
-  </div>
-</div>

@@ -1,30 +1,27 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateFavorite {
-  onCreateFavorite {
+subscription OnCreateTodo {
+  onCreateTodo {
     id
-    name
-    pokemon
-    pokemonPicture
+    pokemonName
+    user
     createdAt
     updatedAt
   }
 }
-subscription OnUpdateFavorite {
-  onUpdateFavorite {
+subscription OnUpdateTodo {
+  onUpdateTodo {
     id
-    name
-    pokemon
-    pokemonPicture
+    pokemonName
+    user
     createdAt
     updatedAt
   }
 }
-subscription OnDeleteFavorite {
-  onDeleteFavorite {
+subscription OnDeleteTodo {
+  onDeleteTodo {
     id
-    name
-    pokemon
-    pokemonPicture
+    pokemonName
+    user
     createdAt
     updatedAt
   }

@@ -1,25 +1,23 @@
 # this is an auto generated file. This will be overwritten
-query GetFavorite($id: ID!) {
-  getFavorite(id: $id) {
+query GetTodo($id: ID!) {
+  getTodo(id: $id) {
     id
-    name
-    pokemon
-    pokemonPicture
+    pokemonName
+    user
     createdAt
     updatedAt
   }
 }
-query ListFavorites(
-  $filter: ModelFavoriteFilterInput
+query ListTodos(
+  $filter: ModelTodoFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listFavorites(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
-      pokemon
-      pokemonPicture
+      pokemonName
+      user
       createdAt
       updatedAt
     }

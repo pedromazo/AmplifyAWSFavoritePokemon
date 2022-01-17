@@ -1,6 +1,6 @@
 {
   "api": {
-    "favoritepokemonapi": {
+    "favoritepokemon": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {

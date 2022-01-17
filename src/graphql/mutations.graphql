@@ -1,39 +1,36 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateFavorite(
-  $input: CreateFavoriteInput!
-  $condition: ModelFavoriteConditionInput
+mutation CreateTodo(
+  $input: CreateTodoInput!
+  $condition: ModelTodoConditionInput
 ) {
-  createFavorite(input: $input, condition: $condition) {
+  createTodo(input: $input, condition: $condition) {
     id
-    name
-    pokemon
-    pokemonPicture
+    pokemonName
+    user
     createdAt
     updatedAt
   }
 }
-mutation UpdateFavorite(
-  $input: UpdateFavoriteInput!
-  $condition: ModelFavoriteConditionInput
+mutation UpdateTodo(
+  $input: UpdateTodoInput!
+  $condition: ModelTodoConditionInput
 ) {
-  updateFavorite(input: $input, condition: $condition) {
+  updateTodo(input: $input, condition: $condition) {
     id
-    name
-    pokemon
-    pokemonPicture
+    pokemonName
+    user
     createdAt
     updatedAt
   }
 }
-mutation DeleteFavorite(
-  $input: DeleteFavoriteInput!
-  $condition: ModelFavoriteConditionInput
+mutation DeleteTodo(
+  $input: DeleteTodoInput!
+  $condition: ModelTodoConditionInput
 ) {
-  deleteFavorite(input: $input, condition: $condition) {
+  deleteTodo(input: $input, condition: $condition) {
     id
-    name
-    pokemon
-    pokemonPicture
+    pokemonName
+    user
     createdAt
     updatedAt
   }

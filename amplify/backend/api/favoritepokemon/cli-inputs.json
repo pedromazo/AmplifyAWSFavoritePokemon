@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "favoritepokemon",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/home/pedro/Desktop/project/favoritePokemon/front/favoritePokemon/amplify/backend/api/favoritepokemon/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}

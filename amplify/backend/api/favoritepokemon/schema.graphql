@@ -2,9 +2,8 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Favorite @model {
+type Todo @model {
   id: ID!
-  name: String!
-  pokemon: String
-  pokemonPicture: String
+  pokemonName: String!
+  user: String!
 }

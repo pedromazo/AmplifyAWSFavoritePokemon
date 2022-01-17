@@ -6,9 +6,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { NewComponent } from './new/new.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PokemonComponent, NewComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -16,7 +19,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [NewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

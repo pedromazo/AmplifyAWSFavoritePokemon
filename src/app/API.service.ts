@@ -10,25 +10,23 @@ export interface SubscriptionResponse<T> {
 }
 
 export type __SubscriptionContainer = {
-  onCreateFavorite: OnCreateFavoriteSubscription;
-  onUpdateFavorite: OnUpdateFavoriteSubscription;
-  onDeleteFavorite: OnDeleteFavoriteSubscription;
+  onCreateTodo: OnCreateTodoSubscription;
+  onUpdateTodo: OnUpdateTodoSubscription;
+  onDeleteTodo: OnDeleteTodoSubscription;
 };
 
-export type CreateFavoriteInput = {
+export type CreateTodoInput = {
   id?: string | null;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
 };
 
-export type ModelFavoriteConditionInput = {
-  name?: ModelStringInput | null;
-  pokemon?: ModelStringInput | null;
-  pokemonPicture?: ModelStringInput | null;
-  and?: Array<ModelFavoriteConditionInput | null> | null;
-  or?: Array<ModelFavoriteConditionInput | null> | null;
-  not?: ModelFavoriteConditionInput | null;
+export type ModelTodoConditionInput = {
+  pokemonName?: ModelStringInput | null;
+  user?: ModelStringInput | null;
+  and?: Array<ModelTodoConditionInput | null> | null;
+  or?: Array<ModelTodoConditionInput | null> | null;
+  not?: ModelTodoConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -70,35 +68,32 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
-export type Favorite = {
-  __typename: "Favorite";
+export type Todo = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type UpdateFavoriteInput = {
+export type UpdateTodoInput = {
   id: string;
-  name?: string | null;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName?: string | null;
+  user?: string | null;
 };
 
-export type DeleteFavoriteInput = {
+export type DeleteTodoInput = {
   id: string;
 };
 
-export type ModelFavoriteFilterInput = {
+export type ModelTodoFilterInput = {
   id?: ModelIDInput | null;
-  name?: ModelStringInput | null;
-  pokemon?: ModelStringInput | null;
-  pokemonPicture?: ModelStringInput | null;
-  and?: Array<ModelFavoriteFilterInput | null> | null;
-  or?: Array<ModelFavoriteFilterInput | null> | null;
-  not?: ModelFavoriteFilterInput | null;
+  pokemonName?: ModelStringInput | null;
+  user?: ModelStringInput | null;
+  and?: Array<ModelTodoFilterInput | null> | null;
+  or?: Array<ModelTodoFilterInput | null> | null;
+  not?: ModelTodoFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -117,92 +112,84 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null;
 };
 
-export type ModelFavoriteConnection = {
-  __typename: "ModelFavoriteConnection";
-  items: Array<Favorite>;
+export type ModelTodoConnection = {
+  __typename: "ModelTodoConnection";
+  items: Array<Todo>;
   nextToken?: string | null;
 };
 
-export type CreateFavoriteMutation = {
-  __typename: "Favorite";
+export type CreateTodoMutation = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type UpdateFavoriteMutation = {
-  __typename: "Favorite";
+export type UpdateTodoMutation = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type DeleteFavoriteMutation = {
-  __typename: "Favorite";
+export type DeleteTodoMutation = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type GetFavoriteQuery = {
-  __typename: "Favorite";
+export type GetTodoQuery = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type ListFavoritesQuery = {
-  __typename: "ModelFavoriteConnection";
+export type ListTodosQuery = {
+  __typename: "ModelTodoConnection";
   items: Array<{
-    __typename: "Favorite";
+    __typename: "Todo";
     id: string;
-    name: string;
-    pokemon?: string | null;
-    pokemonPicture?: string | null;
+    pokemonName: string;
+    user: string;
     createdAt: string;
     updatedAt: string;
   }>;
   nextToken?: string | null;
 };
 
-export type OnCreateFavoriteSubscription = {
-  __typename: "Favorite";
+export type OnCreateTodoSubscription = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type OnUpdateFavoriteSubscription = {
-  __typename: "Favorite";
+export type OnUpdateTodoSubscription = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type OnDeleteFavoriteSubscription = {
-  __typename: "Favorite";
+export type OnDeleteTodoSubscription = {
+  __typename: "Todo";
   id: string;
-  name: string;
-  pokemon?: string | null;
-  pokemonPicture?: string | null;
+  pokemonName: string;
+  user: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -211,17 +198,16 @@ export type OnDeleteFavoriteSubscription = {
   providedIn: "root"
 })
 export class APIService {
-  async CreateFavorite(
-    input: CreateFavoriteInput,
-    condition?: ModelFavoriteConditionInput
-  ): Promise<CreateFavoriteMutation> {
-    const statement = `mutation CreateFavorite($input: CreateFavoriteInput!, $condition: ModelFavoriteConditionInput) {
-        createFavorite(input: $input, condition: $condition) {
+  async CreateTodo(
+    input: CreateTodoInput,
+    condition?: ModelTodoConditionInput
+  ): Promise<CreateTodoMutation> {
+    const statement = `mutation CreateTodo($input: CreateTodoInput!, $condition: ModelTodoConditionInput) {
+        createTodo(input: $input, condition: $condition) {
           __typename
           id
-          name
-          pokemon
-          pokemonPicture
+          pokemonName
+          user
           createdAt
           updatedAt
         }
@@ -235,19 +221,18 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <CreateFavoriteMutation>response.data.createFavorite;
+    return <CreateTodoMutation>response.data.createTodo;
   }
-  async UpdateFavorite(
-    input: UpdateFavoriteInput,
-    condition?: ModelFavoriteConditionInput
-  ): Promise<UpdateFavoriteMutation> {
-    const statement = `mutation UpdateFavorite($input: UpdateFavoriteInput!, $condition: ModelFavoriteConditionInput) {
-        updateFavorite(input: $input, condition: $condition) {
+  async UpdateTodo(
+    input: UpdateTodoInput,
+    condition?: ModelTodoConditionInput
+  ): Promise<UpdateTodoMutation> {
+    const statement = `mutation UpdateTodo($input: UpdateTodoInput!, $condition: ModelTodoConditionInput) {
+        updateTodo(input: $input, condition: $condition) {
           __typename
           id
-          name
-          pokemon
-          pokemonPicture
+          pokemonName
+          user
           createdAt
           updatedAt
         }
@@ -261,19 +246,18 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <UpdateFavoriteMutation>response.data.updateFavorite;
+    return <UpdateTodoMutation>response.data.updateTodo;
   }
-  async DeleteFavorite(
-    input: DeleteFavoriteInput,
-    condition?: ModelFavoriteConditionInput
-  ): Promise<DeleteFavoriteMutation> {
-    const statement = `mutation DeleteFavorite($input: DeleteFavoriteInput!, $condition: ModelFavoriteConditionInput) {
-        deleteFavorite(input: $input, condition: $condition) {
+  async DeleteTodo(
+    input: DeleteTodoInput,
+    condition?: ModelTodoConditionInput
+  ): Promise<DeleteTodoMutation> {
+    const statement = `mutation DeleteTodo($input: DeleteTodoInput!, $condition: ModelTodoConditionInput) {
+        deleteTodo(input: $input, condition: $condition) {
           __typename
           id
-          name
-          pokemon
-          pokemonPicture
+          pokemonName
+          user
           createdAt
           updatedAt
         }
@@ -287,16 +271,15 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <DeleteFavoriteMutation>response.data.deleteFavorite;
+    return <DeleteTodoMutation>response.data.deleteTodo;
   }
-  async GetFavorite(id: string): Promise<GetFavoriteQuery> {
-    const statement = `query GetFavorite($id: ID!) {
-        getFavorite(id: $id) {
+  async GetTodo(id: string): Promise<GetTodoQuery> {
+    const statement = `query GetTodo($id: ID!) {
+        getTodo(id: $id) {
           __typename
           id
-          name
-          pokemon
-          pokemonPicture
+          pokemonName
+          user
           createdAt
           updatedAt
         }
@@ -307,22 +290,21 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <GetFavoriteQuery>response.data.getFavorite;
+    return <GetTodoQuery>response.data.getTodo;
   }
-  async ListFavorites(
-    filter?: ModelFavoriteFilterInput,
+  async ListTodos(
+    filter?: ModelTodoFilterInput,
     limit?: number,
     nextToken?: string
-  ): Promise<ListFavoritesQuery> {
-    const statement = `query ListFavorites($filter: ModelFavoriteFilterInput, $limit: Int, $nextToken: String) {
-        listFavorites(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  ): Promise<ListTodosQuery> {
+    const statement = `query ListTodos($filter: ModelTodoFilterInput, $limit: Int, $nextToken: String) {
+        listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
           __typename
           items {
             __typename
             id
-            name
-            pokemon
-            pokemonPicture
+            pokemonName
+            user
             createdAt
             updatedAt
           }
@@ -342,65 +324,62 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <ListFavoritesQuery>response.data.listFavorites;
+    return <ListTodosQuery>response.data.listTodos;
   }
-  OnCreateFavoriteListener: Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateFavorite">>
+  OnCreateTodoListener: Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateTodo">>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnCreateFavorite {
-        onCreateFavorite {
+      `subscription OnCreateTodo {
+        onCreateTodo {
           __typename
           id
-          name
-          pokemon
-          pokemonPicture
+          pokemonName
+          user
           createdAt
           updatedAt
         }
       }`
     )
   ) as Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateFavorite">>
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateTodo">>
   >;
 
-  OnUpdateFavoriteListener: Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateFavorite">>
+  OnUpdateTodoListener: Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateTodo">>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnUpdateFavorite {
-        onUpdateFavorite {
+      `subscription OnUpdateTodo {
+        onUpdateTodo {
           __typename
           id
-          name
-          pokemon
-          pokemonPicture
+          pokemonName
+          user
           createdAt
           updatedAt
         }
       }`
     )
   ) as Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateFavorite">>
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateTodo">>
   >;
 
-  OnDeleteFavoriteListener: Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteFavorite">>
+  OnDeleteTodoListener: Observable<
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteTodo">>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnDeleteFavorite {
-        onDeleteFavorite {
+      `subscription OnDeleteTodo {
+        onDeleteTodo {
           __typename
           id
-          name
-          pokemon
-          pokemonPicture
+          pokemonName
+          user
           createdAt
           updatedAt
         }
       }`
     )
   ) as Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteFavorite">>
+    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteTodo">>
   >;
 }
